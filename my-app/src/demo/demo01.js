@@ -4,7 +4,7 @@ class HelloComponent extends Component {
     //     return React.createElement('h1', {className:"hello"}, 'Hello World');
     // }
     render(){
-        return <h1>Hello{this.props.name?this.props.name:"World"}</h1>
+        return <h1>Hello{this.props.name?this.props.name:"World1"}</h1>
     }
 }
 export default HelloComponent
