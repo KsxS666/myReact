@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>函数定义/类定义组件</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Welcome extends React.Component{   //类定义组件
+            render(){
+                return <h2>hello,{this.props.name?this.props.name:"World"}</h2>
+            }
+        }
+        function Welcome(props) {      //函数定义组件
+            return <h1>Hello, {props.name}</h1>;
+        }
+        const element = <Welcome name="lc" />;
+        ReactDOM.render(
+            element,
+            document.getElementById("root")
+        )
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>组合组件</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Welcome extends React.Component{
+            render(){
+                return <h2>hello,{this.props.name}</h2>
+            }
+        }
+        class App extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <Welcome name="Talon"></Welcome>
+                        <Welcome name="Jhin"></Welcome>
+                        <Welcome name="Kayn"></Welcome>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App/>,document.getElementById("root"))  
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>给类添加局部状态</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Clock extends React.Component{
+            constructor(props){
+                super(props);
+                // a、调用super的原因：
+                // 在ES6中，在子类的constructor中必须先调用super才能引用this，
+                // 这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工，如果子类没有定义constructor方法，这个方法会被默认添加
+
+                // b、super(props)的目的：
+                // 在constructor中可以使用this.props：
+                // 只有一个理由需要传递props作为super()的参数，
+                // 那就是你需要在构造函数内使用this.props–stackOverflow–注意：无论有没有constructor，在render中this.props都是可以使用的，这是React自动附带的，
+                // 所以，如果在子组件中不需要到constructor,是可以不写的
+                this.state = {date:new Date()}
+            }
+            componentDidMount(){
+                this.timerID = setInterval(
+                    () => this.tick(),
+                1000
+                );
+            }
+            componentWillUnmount() {
+                clearInterval(this.timerID);
+            }
+            tick(){
+                this.setState({
+                    date:new Date()
+                })
+            }
+            render(){
+                return( 
+                <div>
+                    <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Clock />,
+            document.getElementById("root")
+        )
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>更新元素渲染</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function tick() {
+            const element = (<div>It is {new Date().toLocaleTimeString()}.</div>)
+            // 我们书写 JSX 的时候一般都会带上换行和缩进，这样可以增强代码的可读性。与此同时，我们同样推荐在 JSX 代码的外面扩上一个小括号，这样可以防止 分号自动插入 的 bug。
+            ReactDOM.render(
+                element,
+                document.getElementById('root')
+            )
+        }
+        setInterval(() => {
+           tick()
+        }, 2000);
+        // React DOM 首先会比较元素内容先后的不同，而在渲染过程中只会更新改变了的部分。可F12查看
+    </script>
+
+</body>
+
+</html>

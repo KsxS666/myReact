@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // const element = <h1>Hello World</h1>
+        // 相当于
+        const element = React.createElement(
+            //元素名称
+            'h1',
+            //属性
+            {className:'greeting',data:11},
+            //内容
+            'Hello World'
+
+        )
+        ReactDOM.render(
+        element,
+        document.getElementById("root")
+    )
+    </script>
+
+</body>
+
+</html>

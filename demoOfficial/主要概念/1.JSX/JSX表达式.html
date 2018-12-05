@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSX表达式</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root1"></div>
+    <div id="root2"></div>
+    <script type="text/babel">
+        // function 1
+        function formatName(user) {
+            return user.firstName + ' ' + user.lastName;
+        }
+        const user = {
+            firstName: 'Talon',
+            lastName: 'Jhin'
+        };
+        const element = ( 
+            <h1>
+                Hello, {getGreeting(user)}
+            </h1>
+        )
+        ReactDOM.render(
+            element,
+            document.getElementById('root1')
+        );
+        // function2
+        function getGreeting(user){
+            if(user){
+                return <p>Hello {formatName(user)}!</p>
+            }else{
+                return <p>Hello,stranger!</p>
+            }
+        }
+    </script>
+</body>
+
+</html>

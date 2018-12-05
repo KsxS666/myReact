@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>JSX属性</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const user = {
+            avatarUrl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544002602355&di=17b28fe2f53052847adbdc6eeb882547&imgtype=0&src=http%3A%2F%2Fwerkstette.dk%2Fwp-content%2Fuploads%2F2015%2F09%2FEntertainment_Weekly_Photographer_Marc_Hom_British_Actor_Charlie_Hunnam_as_King_Arthur_Retouch_Werkstette10-770x841.jpg"
+        }
+        const element = <img src={user.avatarUrl} ></img>
+        ReactDOM.render(
+            element,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+
+</html>
