@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>事件处理</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Toggle extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {isToggleOn:true}
+                // this.handleClick = this.handleClick.bind(this);
+                // 你必须谨慎对待 JSX 回调函数中的 this，类的方法默认是不会绑定 this 的。如果你忘记绑定 this.handleClick 并把它传入 onClick, 当你调用这个函数的时候 this 的值会是 undefined。
+                // 如果不想使用bind这种语法，可以尝试以下这两种
+                // handleClick = ()=>{} 
+                // handleClick(){} 
+                // <button onClick={(e) => this.handleClick(e)}>
+                //     Click me
+                // </button>
+
+            }
+            handleClick = ()=>{
+                // this.setState((prevState,props)=>{
+                //     console.log("prevState",prevState);
+                //     console.log("props",props);
+                //     isToggleOn:!prevState.isToggleOn
+                // })
+                console.log(this);
+
+                this.setState((prevState, props) => ({
+                    isToggleOn: !prevState.isToggleOn
+                }));
+            }
+            // handleClick(){
+            //     this.setState(prevState => ({
+            //         isToggleOn: !prevState.isToggleOn
+            //     }));
+            // }
+            render(){
+                return(
+                    // <button onClick={(e) => this.handleClick(e)}>{this.state.isToggleOn?"ON":"OFF"}</button>
+                    <button onClick={this.handleClick}>{this.state.isToggleOn?"ON":"OFF"}</button>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Toggle name="lc"/>,
+            document.getElementById("root")
+        )
+    </script>
+
+</body>
+
+</html>
