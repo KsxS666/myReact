@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>三目运算符</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Message extends React.Component{
+            render(){
+                return(
+                    <div>{this.props.arr.length>5?<h2>yes</h2>:<h2>no</h2>}</div>
+                )
+            }
+        }
+        const arr = [1,2,3,4,5]
+        ReactDOM.render(
+            <Message arr={arr} />,
+            document.getElementById("root")
+        )
+    </script>
+
+</body>
+
+</html>

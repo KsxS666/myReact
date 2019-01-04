@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>&&运算符</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class MainBox extends React.Component{
+            constructor(props){
+                super(props)
+            }
+            render(){
+                const unreadMessages = this.props.messages;
+                return(
+                    <div>{unreadMessages.length>5 &&<h2>yes</h2>}
+                        <h2></h2>
+                    </div>
+                )
+            }
+        }
+        const messages = ["111","222","333","444","555"]
+        ReactDOM.render(
+            <MainBox  messages = {messages}/>,
+            document.getElementById("root")
+        )
+    </script>
+
+</body>
+
+</html>
