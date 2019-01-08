@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>用keys提取组件</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class ListItem extends React.Component{
+        render(){
+          return(
+            <h2>{this.props.value}</h2>
+          ) 
+        }
+      }
+      class List extends React.Component{
+        render(){
+          const numbers = this.props.numbers
+          const listItems = numbers.map(number => <ListItem key = {number.toString()} value = {number} />)
+          return (
+            <div>
+              {listItems}  
+            </div>
+          )
+        }
+      }
+      const numbers = [1, 2, 3, 4, 5]
+      ReactDOM.render(
+        <List numbers = {numbers}/>,
+        document.getElementById('root')
+      )
+    </script>
+
+</body>
+
+</html>
