@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>在jsx中嵌入map()</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function ListItem (props){
+        return (
+          <h2>{props.value}</h2>
+        )
+      }
+      function NumberList (props) {
+       const numbers = props.numbers
+        
+       return (
+         <div>
+          {numbers.map((number => <ListItem key={number} value={number} />))}  
+        </div>
+       ) 
+      }
+      const numbers = [1,2,3,4,5]
+      ReactDOM.render(
+        <NumberList numbers={numbers} />,
+        document.getElementById('root')
+      )
+    </script>
+
+</body>
+
+</html>

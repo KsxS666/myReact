@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>状态提升（自写）</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const inputNames = {
+        first: 'first',
+        second: 'second' 
+      }
+      class NumberInput extends React.Component {
+        constructor(props){
+          super(props)
+        }
+        handleChange(e){
+          this.props.onNumberChange(e.target.value)
+        }
+        render() {
+          const index = this.props.index
+          const number = this.props.number
+          return (
+            <fieldset>
+              <legend>Please enter number in {inputNames[index]} input</legend>
+              <input value={number} onChange={(e) => this.handleChange(e)} />
+            </fieldset>
+          )
+        }
+      }
+      class Wrp extends React.Component {
+        constructor(props){
+          super(props)
+          this.state = {number: '', index: 'first'}
+        } 
+        firstChange(number) {
+          this.setState({number: number, index: 'first'})
+        }
+        secondChange(number) {
+          this.setState({number: number, index: 'second'})
+        }
+        render() {
+          const number = this.state.number
+          const index = this.state.index
+          const firstNumber = index === 'first' ? number : tryConvert(number, double)
+          const secondNumber = index === 'second' ? number :tryConvert(number, half)
+          return (
+            <div>
+              <NumberInput index='first'  number={firstNumber} onNumberChange={(e)=>this.firstChange(e)} />
+              <NumberInput index='second' number={secondNumber} onNumberChange={(e)=>this.secondChange(e)} />        
+            </div>
+          )
+        }
+      }
+      function tryConvert(number, convert) {
+        const input = parseFloat(number)
+        if (Number.isNaN(input)) {
+          return ''
+        }
+        const num = convert(number)
+        return num
+      }
+      function double(number) {
+        return parseInt(number) * 2
+      }
+      function half(number) {
+        return parseInt(number) / 2
+      }
+      ReactDOM.render(
+        <Wrp />,
+        document.getElementById('root')
+      )
+    </script>
+
+</body>
+
+</html>
