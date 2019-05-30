@@ -6,7 +6,7 @@ import App from './App';
 // import HelloComponent2 from './demo/demo02';
 // import HelloComponent3 from './demo/demo03';
 import * as serviceWorker from './serviceWorker';
-
+import 'antd-mobile/dist/antd-mobile.css'
 ReactDOM.render(<App />, document.getElementById('root'));
 // ReactDOM.render(<HelloComponent name="Lc"/>,document.getElementById('root'))
 // ReactDOM.render(<HelloComponent2 name="Lc"/>,document.getElementById('root'))
