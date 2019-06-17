@@ -20,7 +20,12 @@ export default class Index extends Component{
         <section>
         5. 点击跳转到Exact，为不加载父组件内容直接跳转。NoExact的子页，则会加载父组件内容。
         </section>
-        <Link to="/Exact" className={'link'}>通过Link标签跳转到Exact</Link>
+        <div>
+          <Link to="/Exact" className={'link'}>通过Link标签跳转到Exact</Link>
+        </div>
+        <div>
+          <Link to="/ReduxDemo" className={'link'}>通过Link标签跳转到Redux Demo</Link>
+        </div>
 				<WhiteSpace 
 					
 				/>

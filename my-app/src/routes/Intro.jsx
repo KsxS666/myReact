@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import ReactLo from '../ReactLo'
 import Index from './Index'
 import Exact from './Exact'
+import ReduxDemo from './ReduxDemo'
 import ExactInside from './ExactInside'
 import NoExact from './NoExact'
 import GetData from './GetData'
@@ -14,6 +15,7 @@ export default class Intro extends Component {
         <Route path={'/'} component={ReactLo} exact></Route>
         <Route path={'/Index'} component={Index}></Route>
         <Route path={'/Exact'} component={Exact} exact></Route>
+        <Route path={'/ReduxDemo'} component={ReduxDemo}></Route>
         <Route path={'/Exact/ExactInside'} component={ExactInside}></Route>
         <Route path={'/NoExact'} component={NoExact}></Route>
         <Route path={'/GetData'} component={GetData}></Route>
